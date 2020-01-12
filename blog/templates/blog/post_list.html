@@ -8,14 +8,14 @@
 </head>
 <body>
     Hola!
+    <div><h1>My first blog with Django</h1></div>
+    {% for post in posts %}
     <div>
-        <h1>Mi primer blog con Django</h1>
+        <p> publicado: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
     </div>
-
-    <div>
-        <h2><a href="https://djangogirls.org">link</a></h2>
-         <em><p>Publicado el 08 de Enero del 2020 a las 18:11</p></em>
-    </div>
+{% endfor %}
 
     <div>
         <h2>¿Porque nos lamen nuestro perros?</h2>
@@ -31,6 +31,7 @@
              <p>olfatearlo lo chupa? Es su manera de ir conociendo ese objeto desconocido.</p>
              
     </div>
+   
     <div>
 
 </body> 
