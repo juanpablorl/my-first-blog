@@ -1,38 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=Hola!, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Documento para aprender</title>
-</head>
-<body>
-    Hola!
-    <div><h1>My first blog with Django</h1></div>
+{% extends 'blog/base.html' %} 
+
+{% block content %}
     {% for post in posts %}
-    <div>
-        <p> publicado: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
-{% endfor %}
+        <div class="post">
+            <div class="date">
+                <p>publicado: {{ post.published_date }}</p>
+            </div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
 
-    <div>
-        <h2>¿Porque nos lamen nuestro perros?</h2>
-        <p>El lamido es uno de los comportamientos más representativos de los</p> 
-            <p>perros, casi comparable con el ladrido. Es cierto que existen</p>
-             <p>individuos más o menos “lamedores” pero al final todos acaban</p> 
-             <p>alargando la lengua para, por ejemplo, conocer el mundo que les</p>
-             <p>rodea. El perro no solo explora valiéndose de su poderosísimo</p>
-        
-             <p> sentido del olfato y de la vista, sino que también se sirve de su</p> 
-             <p> lengua para enfrentarse a lo desconocido. ¿No te has fijado que</p> 
-             <p>cuando obsequias a tu peludo con un nuevo juguete además de</p> 
-             <p>olfatearlo lo chupa? Es su manera de ir conociendo ese objeto desconocido.</p>
-             
-    </div>
-   
-    <div>
-
-</body> 
-</html>
